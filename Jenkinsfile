@@ -9,12 +9,12 @@ pipeline {
     environment {
         NEXUSIP = '172.31.26.23'
         NEXUSPORT = '8081'
-        NEXUS-GRP-REPO = 's9b-maven-grouped'
         NEXUS-USER = 'admin'
         NEXUS-PASS = 'admin'
         SNAP-REPO = 's9b-maven-snapshot'
         RELEASE-REPO = 's9b-release'
         CENTRAL-REPO = 's9b-maven-central'
+        NEXUS_GRP_REPO = 's9b-maven-grouped'
         NEXUS-LOGIN = 'nexuslogin'
     }
 
