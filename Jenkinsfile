@@ -9,6 +9,7 @@ pipeline {
     environment {
         NEXUSIP = '172.31.26.23'
         NEXUSPORT = '8081'
+        
         NEXUS-USER = 'admin'
         NEXUS-PASS = 'admin'
         SNAP-REPO = 's9b-maven-snapshot'
