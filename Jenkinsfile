@@ -1,12 +1,12 @@
-pipeline{
+pipeline {
     agent any
 
-    tools{
+    tools {
         jdk "OracleJDK8"
         maven "MAVEN3"
     }
 
-    environment{
+    environment {
         NEXUSIP = '172.31.26.23'
         NEXUSPORT = '8081'
         NEXUS-GRP-REPO = 's9b-maven-grouped'
