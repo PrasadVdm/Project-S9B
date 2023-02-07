@@ -52,14 +52,15 @@ pipeline {
 
         stage('SonarQube analysis') {
             environment {
-                scannerHome = tool 'sonar-s9b' // the name you have given the Sonar Scanner (in Global Tool Configuration)
+                scannerHome = tool "${SONARSCANNER}" // the name you have given the Sonar Scanner (in Global Tool Configuration)
             }
             steps {
-                withSonarQubeEnv(installationName: 'sonar-server-s9b') {
+                withSonarQubeEnv(installationName: "${SONARSERVER}") {
                     sh '''${scannerHome}/bin/sonar-scanner -X \
                     -Dsonar.projectKey=testingS9B \
                     -Dsonar.projectName=projects9b \
-                    -Dsonar.projectVersion=2.0'''
+                    -Dsonar.projectVersion=2.0 \
+                    -Dsonar.java.binaries=target/test-classes/com/visualpathit/account/controllerTest/'''
                 }
             }
 
