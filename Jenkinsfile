@@ -54,9 +54,9 @@ pipeline {
             }
             steps {
                 withSonarQubeEnv(installationName: 'sonar-server-s9b') {
-                    sonar.projectKey=testingS9B
-                    sonar.projectName=projects9b
-                    sonar.projectVersion=2.0
+                    -Dsonar.projectKey=testingS9B
+                    -Dsonar.projectName=projects9b
+                    -Dsonar.projectVersion=2.0
                     sh "${scannerHome}/bin/sonar-scanner -X"
                 }
             }
