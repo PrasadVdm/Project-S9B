@@ -52,7 +52,7 @@ pipeline {
 
         stage('SonarQube analysis') {
             environment {
-                scannerHome = tool '${SONARSCANNER}' // the name you have given the Sonar Scanner (in Global Tool Configuration)
+                scannerHome = tool 'sonar-s9b' // the name you have given the Sonar Scanner (in Global Tool Configuration)
             }
             steps {
                 withSonarQubeEnv(installationName: '${SONARSERVER}') {
