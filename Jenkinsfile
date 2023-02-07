@@ -12,7 +12,7 @@ pipeline {
         NEXUS_USER = "admin"
         NEXUS_PASS = "admin"
         SNAP_REPO = "s9b-maven-snapshot"
-        RELEASE_REPO = "s9b-release"
+        RELEASE-REPO = "s9b-release"
         CENTRAL_REPO = "s9b-maven-central"
         NEXUS_GRP_REPO = "s9b-maven-grouped"
         NEXUS_LOGIN = "nexuslogin"
