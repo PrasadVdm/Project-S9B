@@ -48,6 +48,18 @@ pipeline {
             }
         }
 
+        stage('SonarQube analysis') {
+            environment {
+                scannerHome = tool 'sonar-s9b' // the name you have given the Sonar Scanner (in Global Tool Configuration)
+            }
+            steps {
+                withSonarQubeEnv(installationName: 'sonar-server-s9b') {
+                    sh "${scannerHome}/bin/sonar-scanner -X"
+                }
+            }
+
+}
+
 
     }
 
