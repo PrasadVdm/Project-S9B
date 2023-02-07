@@ -60,6 +60,10 @@ pipeline {
                     -Dsonar.projectKey=testingS9B \
                     -Dsonar.projectName=projects9b \
                     -Dsonar.projectVersion=2.0 \
+                    -Dsonar.sources=src/ \
+                    -Dsonar.junit.reportsPath=target/surefire-reports/ \
+                    -Dsonar.jacoco.reportsPath=target/jacoco.exec \
+                    -Dsonar.java.checkstyle.reportsPath=target/checkstyle-result.xml \
                     -Dsonar.java.binaries=target/test-classes/com/visualpathit/account/controllerTest/'''
                 }
             }
