@@ -16,6 +16,8 @@ pipeline {
         CENTRAL_REPO = "s9b-maven-central"
         NEXUS_GRP_REPO = "s9b-maven-grouped"
         NEXUS_LOGIN = "nexuslogin"
+        SONARSCANNER = "sonar-s9b"
+        SONARSERVER = "sonar-server-s9b"
     }
 
     stages{
@@ -50,14 +52,14 @@ pipeline {
 
         stage('SonarQube analysis') {
             environment {
-                scannerHome = tool 'sonar-s9b' // the name you have given the Sonar Scanner (in Global Tool Configuration)
+                scannerHome = tool '${SONARSCANNER}' // the name you have given the Sonar Scanner (in Global Tool Configuration)
             }
             steps {
-                withSonarQubeEnv(installationName: 'sonar-server-s9b') {
+                withSonarQubeEnv(installationName: '${SONARSERVER}') {
+                    sh '''${scannerHome}/bin/sonar-scanner -X
                     -Dsonar.projectKey=testingS9B
                     -Dsonar.projectName=projects9b
-                    -Dsonar.projectVersion=2.0
-                    sh "${scannerHome}/bin/sonar-scanner -X"
+                    -Dsonar.projectVersion=2.0'''
                 }
             }
 
