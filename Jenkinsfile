@@ -55,7 +55,7 @@ pipeline {
                 scannerHome = tool 'sonar-s9b' // the name you have given the Sonar Scanner (in Global Tool Configuration)
             }
             steps {
-                withSonarQubeEnv(installationName: '${SONARSERVER}') {
+                withSonarQubeEnv(installationName: '$SONARSERVER') {
                     sh '''${scannerHome}/bin/sonar-scanner -X
                     -Dsonar.projectKey=testingS9B
                     -Dsonar.projectName=projects9b
