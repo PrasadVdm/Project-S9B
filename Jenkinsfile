@@ -6,7 +6,7 @@ pipeline {
         maven "MAVEN3"
     }
 
-    environment {
+    environment{
         NEXUSIP = "172.31.26.23"
         NEXUSPORT = "8081"
         NEXUS_USER = "admin"
