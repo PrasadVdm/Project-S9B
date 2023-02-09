@@ -85,7 +85,7 @@ pipeline {
                     protocol: 'http',
                     nexusUrl: '172.31.26.23:8081',
                     groupId: 'QA',
-                    version: 2.0,
+                    version: '2.0',
                     repository: 's9b-release',
                     credentialsId: "${NEXUS_LOGIN}",
                     artifacts: [
