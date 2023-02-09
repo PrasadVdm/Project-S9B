@@ -76,7 +76,27 @@ pipeline {
                 waitForQualityGate abortPipeline: true
               }
             }
-          }
+        }
+
+        stage("Uploading Artifact to Nexus") {
+            steps {
+                nexusArtifactUploader(
+                    nexusVersion: 'nexus3',
+                    protocol: 'http',
+                    nexusUrl: '172.31.26.23:8081',
+                    groupId: 'QA',
+                    version: 2.0,
+                    repository: 'S9B-Release',
+                    credentialsId: ${NEXUS_LOGIN},
+                    artifacts: [
+                        [artifactId: Project-S9B,
+                        classifier: '',
+                        file: 's9b' + V${BUILD_ID}_${BUILD_TIMESTAMP} + '.war',
+                        type: 'war']
+                    ]
+                )
+            }
+        }
 
 
 
