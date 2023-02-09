@@ -89,7 +89,7 @@ pipeline {
                     repository: 'S9B-Release',
                     credentialsId: "${NEXUS_LOGIN}",
                     artifacts: [
-                        [artifactId: Project-S9B,
+                        [artifactId: 'Project-S9B',
                         classifier: '',
                         file: 's9b' + V${BUILD_ID}-${BUILD_TIMESTAMP} + '.war',
                         type: 'war']
