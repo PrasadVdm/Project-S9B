@@ -91,7 +91,7 @@ pipeline {
                     artifacts: [
                         [artifactId: 'S9B',
                         classifier: '',
-                        file: 's9b-V' + $BUILD_ID + '.war',
+                        file: 's9b-V' + "${BUILD_ID}-${BUILD_TIMESTAMP}" + '.war',
                         type: 'war']
                     ]
                 )
