@@ -83,15 +83,15 @@ pipeline {
                 nexusArtifactUploader(
                     nexusVersion: 'nexus3',
                     protocol: 'http',
-                    nexusUrl: '172.31.26.23:8081',
+                    nexusUrl: "${NEXUSIP}:${NEXUSPORT}",
                     groupId: 'QA',
-                    version: '2.0',
-                    repository: 's9b-release',
+                    version: "V${BUILD_ID}-${BUILD_TIMESTAMP}",
+                    repository: "${RELEASE_REPO}",
                     credentialsId: "${NEXUS_LOGIN}",
                     artifacts: [
                         [artifactId: 'S9B',
                         classifier: '',
-                        file: 's9b-V' + "${BUILD_ID}-${BUILD_TIMESTAMP}" + '.war',
+                        file: 'target/vprofile-v2.war',
                         type: 'war']
                     ]
                 )
