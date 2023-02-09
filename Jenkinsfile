@@ -87,7 +87,7 @@ pipeline {
                     groupId: 'QA',
                     version: 2.0,
                     repository: 'S9B-Release',
-                    credentialsId: ${NEXUS_LOGIN},
+                    credentialsId: "${NEXUS_LOGIN}",
                     artifacts: [
                         [artifactId: Project-S9B,
                         classifier: '',
